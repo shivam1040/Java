@@ -1,0 +1,8 @@
+<taglib>
+<tlib-version>1.0</tlib-version>
+<jsp-version>2.3</jsp-version>
+<tag>
+<name>body</name>
+<tagclass>custom.BodyTagSupportDem</tagclass>
+</tag>
+</taglib>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body bgcolor="red">
+	<!--form action="http://google.com" method="post"-->
+	<!-- by default the http method is get, and in this case all the information can be seen in header/url while doing a sumbit action, in post it's not seen because the content is encrypted and stored in body while transmission, post is generally for sendig sensitive data, post has wider scope than get, post doesn't show sent data in header tag which has limitations -->
+	<!--form action="ServByHttp" method="post"-->
+	<!-- this will call the servelethttp and its method dopost if no service methods are present -->
+	<form action="Uploading" enctype="multipart/form-data" method="post">
+		<label>Enter Name</label> <input type="text" name="name"> <br>
+		<label>Enter Name</label> <input type="text" name="pass"> <br>
+		<input type="file" name="pas"> 
+		<br> 
+		<input type="submit"
+			name="name">
+	</form>
+	<a href="Download?down=index.html">download</a>
+	
+	<form action="First" method="get">
+		<input type="submit"
+			name="count">
+	</form>
+	<br>
+	<form action="index.jsp" method="post">
+	<label>Enter Name</label> <input type="text" name="forJSP">
+	 <br>
+		<input type="submit"
+			name="count">
+	</form>
+	
+	<form action="errorDemo.jsp" method="get"> <!-- demo of error handling -->
+		<input type="submit"
+			name="count">
+	</form>
+</body>
+</html>

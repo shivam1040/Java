@@ -1,0 +1,88 @@
+jsp is a scripting languange in java, supports entire html tags
+
+<% %> this is know as scritlet tag in jsp
+
+if there's no entry in web xml then index.html is given prefrenceover index.jsp
+
+jsp gives fliexibility over servlet for combining both presentation layer and bussiness layer, with servlet it's not easy to separate presentation/bussiness
+
+internal functioning of jsp is based on servlet
+
+MVC- view(presentation) , controller, model(bussiness)
+
+listeners, filter not possible in jsp
+
+jsp scripting elements-scriptlet tag(<% %>) every java code inside this tag gets executed in service method internally hence method is not possible in scriptlet, 
+
+expression(<%="hello"%>) this tag is similar to print in servlet used for printing, 
+
+declaration(<%! int x; 
+void show(){}%>) this is used for declaring method/variable and scope is global while variable declared in scriptlet is local since all the codes gets executed in service method, 
+
+comment(<%-- --%>) this tag is used for commenting
+
+directive tag-page directive, include directive, taglib directive--these  tags are used to give direction(such as importing module, setting content type etc.) to jsp generated servlets
+
+<%@... this is directive tag, <jsp:... this is action tag
+
+don't code html tags inside scriptlets
+
+jsp has auto sessiontracking by default it can be set to faulse as required
+
+scriptlet tag mainly for java codes/logic
+
+scriptlet tag is memory heavy
+
+two interfaces in jsp- jspage(methods are init and destroy), httpjsppage(service method)
+
+service of jsp can't be overriden
+
+staging folder in tomcat is webapp where content is kept
+
+jsp internally gets converted to servlet and that's how it functions, in tomcat folder location is work/catalina/localhost/myjsp/org/apache/jsp
+
+jsp to servlet(.class files) then implementations of servers provide implementations for classes/interfaces in created servlet class, then the class is loaded and instantiated, after all this jspinit is executed in init implementation provided by tomcat and jspservice in service() etc. 
+
+in servlet lifecycle, servlet is instantitaed, request response obj is created, init is called, config is passed to init
+
+webcontainer two parts, servletengine for servlet and jspengine for jsp
+
+<%@include file=""%> //this tag is used to include file/jsp during compile time(conversion from jsp to servlet)
+
+<jsp:include page=""/> same as above but during runtime just like include of req dispatcher
+
+<%page import="java.util.*%> //imports a class
+
+a jsp page extends httpjspbase implementation provided by tomcat, for servlet conversion process/since we know that java doesn't support multiple extends so this means we can't extend a class by using page directive because jsp is already extending httpjspbase for servlet conversion/workaround is to make the class we want to extend abstract and make this abstract class extend httpjspbase
+all the conversion and check if extension of vendor specific class is done or not by jspengine
+
+make WAR file for production deployment in servers
+
+generally there are 9 pre given implicit objs in jsp, 10th one is exception obj which is created explicitly
+
+war file for production mode, exploded/directory type for development mode
+
+hot deployment(directly pasting the folder) and cold deployment(step by step) are further specifictions of above type
+
+action tags are used for performing tasks at runtime such as creationg object of a bean class etc.
+
+let's say page is name of jsp then internal conversion by tomacat would look like-page_jsp extends HttpJSPBase
+
+<prefix:name attributr/> syntax of custom action tag
+
+taglib directory gives information about tags, mainly custom action tags
+
+in html, setting anything in value tag of input field will be shown in the placeholder
+
+prerequisites for java mail: mail client, mail server, mail protocol
+
+Filter sits between webbrowser and webcomponent which is responsible to perform preprocessing of request and postprocessing of response
+like authentication, logging etc. which could be common for all servlets
+
+filter has init, doFilter(contains pre and post processing logic) and destroy as methods
+
+which filter will run next by chain filter is according to the placement in web xml
+
+with Filter we can;t create dynamic page
+
+filterconfig interface is used to read the parameters set for filter in xml,such as init param etc.

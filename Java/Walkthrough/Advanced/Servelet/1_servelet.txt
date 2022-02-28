@@ -1,0 +1,77 @@
+/*service method run s on every request(calling of dynamic page by client) and it is generally used for writing logic
+
+classes which don't have main method are knowns as managed objects i.e manage by container in servlet's case
+
+destroy method is like finally block, it's used for cleanup and final purpose
+
+httpmethod for creating servlet is the standard way
+
+in httpmethod, doget gets executed if service is not present and client makes a request call
+
+in a packet: req line, req headers, req body
+
+get method is for static content, post is for dynamic content
+
+get is idempotent while post is not, idempotent means no change in content on multiple operations
+
+printwriter is similar to printstream, printwriter follows unicode while printstream follows ascii
+
+System.out.println// system is a class, out is a static variable of System, printstream belongs to it and println is a method of printstream//functioning is println checks class of object it is getting called by, printstream checks called by which source, then the content is outputted to source
+
+services on top of servelet on top of socket, socket on top of i/o
+
+serializable is for data persistency, avoid loss of data in case of transfer
+
+class/constructor private then no object, if final then no inheritance
+
+to get to another servlet or html from a servle t, there are two methods- request dispatcher(interface), send redirect(method)
+
+when project is getting deployed on server, a single object is created by container for the entire project called object of servletcontext(interface, implementation provided by vendor), one servlet context per web application
+
+steps in servlets: deployment->servletcontext(interface) object creation->request recieved from client->checks in web xml for servlet url then name then class->load servlet at runtime and instantiate it->servletconfig obj creation->call init method and pass servconfig obj to it->create obj, Serv response and serv request->start thread pass last two objects to service method->container creates a dynamic page, provide response and destroy the thread->destroy method is called by container before server is closed
+
+Class.forName(); way for runtime loading
+
+newInstance(); class method for creating object of the same class
+
+container creates a seprate obj for each servlet(when called) known as servletconfig(interface)
+
+init method runs on a separate thread until destroy gets executed
+
+generally serveletcontext is used for sharing xml context tag data in interapplication maaner
+
+seveletconfig is used for sharing xml init tag data in interservlet manner in the same application
+
+factorymethods are used to create objects of interfaces provided by the implementing class and to avoid the hassle of finding the location of implementing class
+
+when client sends request to server/webapp, a connection is established known as socket connection, this connection closes as soon as the response is send which means new socket connection for every request
+
+preserving the socket connection for required operation is known as session tracking (often used for tracking activity/inactivity, eccomerce byuing, ticket booking)
+
+object has three charactersitics that are, state(data), behaviour(memeber function) and identity
+
+methods to do session tracking, httpsession(standard used), cookies, url rewwriting and hidden form field
+
+setcontextattribute remains same for all the requests
+
+to initiallize some specific instruction, init method can be used to do so
+
+every new request by http is 'get'by default
+
+using requestdispatcher for session tracking wouldn't makes sense since page url won't change in case when session request needs to be taken to new page
+
+http protocol is stateless
+
+cookies are textual info send by server in  response in key value pair stored in client side in local storage(encrypted form)
+
+dynamic data sharing is done mainly by, request, servletcontext, session
+
+servlet 2.x is xml based and 3.x is annotation based, 3.x supports uploading/downloading, in 2.x we had to use cos.jar of apache for upload/download
+
+requirements for event handling- source, listener, register
+
+/* servelet jsp are web components
+ejb provides logic to web components
+container provides runtime for env for ejb/web component
+container is equivalent to jvm and jee
+for instance in apache tomcat, tomcat is the container

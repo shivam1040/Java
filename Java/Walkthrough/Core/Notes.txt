@@ -1,0 +1,135 @@
+static keyword for method gives the ability to call a method associating it with an object
+if an object is passed to method via refrence then changes made in the called function will be reflected after end of execution too, int a[]={1, 2, 3}; change(a); supposes in method change, there is a statement which changes the value of index 0 in arr a then he change will be permamnent since the refrence/address is passed to the function,same is the case for object passing to methods
+method overloading can be used to implement various method of same name in a particular class, provided that function parameters are different for every new method
+call by refrence--address passed, call by value--actual arguement passed/value pass
+An OOPs can be thought of as Noun-Class-Employee, Adj-Attributes-Name, Salary and Verb-getsalary(), getName()
+Inheritance- Deriving new things from existing things
+Polymorphism- One thing many forms, Smartphone can be used as calc, phone, videowatch etc.
+class 1 extends 2{
+    //extends class 2 and all the Attributes/method of 2 can be used for class 1 by creating object for class 1
+}
+in Inheritance if superclass has a constructor and subclass has too, then at the time of creating obj for subclass both the constructors are called, if construct isn't present in subclass then superclass construc is called
+class super{
+    super(){
+        ...
+    }
+    super(int x){
+        ...
+    }
+}
+class sub extends super{
+    sub(){
+        super(0); //this ensures that parameterized constr of superclass is called else non parametri const is called
+        SOP("")
+    }
+    sub(int x){
+        ...
+    }
+
+}
+Sub obj=new Sub(4); //this ensures that parameterized const of sub is called else no arguement calls non parametrized subclass constructor
+this keyword is used to refer to current created object, useful to pass it to functions of other class/methods
+user @Override for overriding extended methods in subclass
+Superclass obj=new subclass(); //allowed, and if method is present in both the classes the subclass method will be called while methods/attributes which are present in sub but not super and if called then error 
+using new keyword tells that object will be created runtime
+
+printing an object, java goes to tostring method of object class and implicit refrence to the object's memory is created and printed
+
+collections classes have mostly overriden the tostring method of object class hence no id is printed when printing an object
+
+autoboxing faeture, way for auto implicit conversion from primitive to object & vice versa, 
+
+initiallize collection classes without two arrows to store heterogenous data
+
+interface can extend multiple interfaces but never implement any other interface
+
+extends provides functionality of parent class to child class, while implements provide implementation of methods
+
+inteface implements methods need to be implemented strictily in the implementiong class by overriding
+
+above is not the case when extending
+
+Iterator obj=objlist.iterator(); objlist calls iterator method of arraylist class which returns an object of class implementing iterator interface in arraylist class; iterator obj is reference type of interface(convention to prevent hardcoding, and create loosely coupled projects)
+
+interface a
+{
+    void show();
+}
+class b{
+    main{
+        A obj=new A(){
+            public void show(){
+                sopln("aa)
+            }
+        };
+        obj.show(); //way to use anonymous classes, in this case class b hasn't implemented interface a but boid show method of a has been overriden
+    }
+}
+
+class c{
+    main{
+        A obj=()->{
+            sopln("dd"); //implementation of show method of interface a using lambda expressions
+        }
+        obj.show();
+    }
+}
+
+(arguement)->{body} //syntax of lambda expression
+
+enumeration can only travel legacy collections while iterator for new collections since jdk 1.2
+
+list iterator for forward/backward traversal while iterator for only forward traversal, listiterator is child interface of iterator interface
+
+
+
+Enumeration obj=vectorobj.elements(); //way to iterate through a vector collection using enumeration interface of legacy collection and enumeration can only travel legacy collection
+while(obj.hasmoreelementsa()){
+    sopln(obj.nextelements)
+}
+
+List ref=new ArrayList; this is done to achieve runtime Polymorphism and loosely coupled programs(refrence of interface and object of implementing class)
+
+in hashset an internal implementation of hashmap is done, where value for every key is same i.e PRESENT, and a hashcode is generated to store the set data in a hashtable similar to arraylist-linkedlist implementation of hashing
+
+in case of defining custom data class for set, ensure to override hashcode and equals class to ensure no duplicacy feature of set is maintained
+
+ClassA obj=new ClassA();
+String str=obj.getclass().getname(); gives the class current classname
+
+for custom data class to be used with treeset, comparable/comparator interfaces need to be implemented and tostring need to overriden too in custom data class
+
+comparator objects need to be creted and passed to the constructor(in obj initiallize definition) of using collecion classes whenever using custom sorting technique
+
+synchronizelist method of collection class can be used to synchronize arraylist
+
+reasons for concurrent collection: not thread safe, unsynchronized(synchronization means one by one access to thread) (like treeset, hashmap, arra) i.e data inconsistent(only when performing write operations) when acceseed in multi threading environment and synchronized concrete classes of collection interface aren't upto the mark performance wise
+
+SUPPOSE IN hashmap we're iterating printing entries and writing entries at the same time, it'll give exception(this is known as fail fast for unsynchronized ds), basically performing two operation at one resource at the same time
+
+while in case of concurrent hashmap above case doesn't give exception(this is known as failsafe )
+
+
+conurrency ds classes are thread safe and better performance
+
+concurrency levels are number of buckets synchronized in a hash function arraylist linkedlist type bucket storage
+
+Copyonwritearraylist/concurrenthashmap class of concurrency interface can be used too too achieve concurrency
+
+collections.sort(listobj,(a,b)->{
+    return a.name.copmareto(b.name) //lambda expression to sort the arraylist buildt for custom employee data class, so the comparison type can be changed accordingly this way in small syntax length
+}
+
+
+Stream<EmployeeDataclass> obj=objlist.stream().filter(a->a.eid>5); //returns all data greater than 5 in obj using stream feature
+obj.forEach(a->Sopln(a.eid)); //way to print above filtered data
+
+String str=System.getproperty("user.dir"); stores the current working directory
+
+JDBC(java database connectivity)-api in java to connect java program with database(java.sql package), other ways are vendor specific api, odbc(open database connectivity)
+jdbc driver-implementation of jdbc api in java language
+4 types of jdbc driver so that jdbc api could be used with non java progreams too
+1-jdbc odbc bridge-type 1
+2-native driver-type2
+3-driver server-type3
+4-thin driver-type4 (commonly used)

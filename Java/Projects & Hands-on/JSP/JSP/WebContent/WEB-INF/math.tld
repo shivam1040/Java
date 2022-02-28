@@ -1,0 +1,14 @@
+<!-- this description is required for custom tag -->
+<taglib>
+<tlib-version>1.0</tlib-version>
+<jsp-version>2.3</jsp-version>
+<tag>
+<name>sum</name>
+<tagclass>custom.HandlerTagSupport</tagclass>
+<attribute>
+<name>var1</name>
+<required>true</required> 
+<rtexprvalue>true</rtexprvalue> <!-- sets ability to use expression tag for giving value to this attribute -->
+</attribute>
+</tag>
+</taglib>
